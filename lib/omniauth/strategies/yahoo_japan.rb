@@ -4,7 +4,7 @@ module OmniAuth
   module Strategies
     class YahooJapan < OmniAuth::Strategies::OAuth2
 
-      option :name, 'yahoojp'
+      option :name, 'yahoo_japan'
       option :client_options, {
         :site => 'https://auth.login.yahoo.co.jp',
         :authorize_url => '/yconnect/v2/authorization',
@@ -14,7 +14,7 @@ module OmniAuth
 
       option :authorize_options, [:display, :prompt, :scope, :bail]
 
-      uid { raw_info['user_id'] }
+      uid { raw_info['sub'] }
 
       info do
         prune!({
@@ -22,9 +22,6 @@ module OmniAuth
           :email      => raw_info['email'],
           :first_name => raw_info['given_name'],
           :last_name  => raw_info['family_name'],
-          :urls => {
-            'YahooJp' => raw_info['link'],
-          },
         })
       end
 

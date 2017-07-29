@@ -18,10 +18,11 @@ module OmniAuth
 
       info do
         prune!({
-          :name       => raw_info['name'],
-          :email      => raw_info['email'],
-          :first_name => raw_info['given_name'],
-          :last_name  => raw_info['family_name'],
+          name:       raw_info['name'],
+          email:      raw_info['email'],
+          image:      raw_info['picture'],
+          first_name: raw_info['given_name'],
+          last_name:  raw_info['family_name'],
         })
       end
 

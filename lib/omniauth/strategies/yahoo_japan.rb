@@ -17,13 +17,13 @@ module OmniAuth
       uid { raw_info['sub'] }
 
       info do
-        prune!({
-          name:       raw_info['name'],
+        {
+          name:       raw_info['nickname'] || "",
           email:      raw_info['email'],
-          image:      raw_info['picture'],
-          first_name: raw_info['given_name'],
-          last_name:  raw_info['family_name'],
-        })
+          image:      raw_info['picture'] || "",
+          first_name: raw_info['given_name'] || "",
+          last_name:  raw_info['family_name'] || "",
+        }
       end
 
       extra do
@@ -36,12 +36,6 @@ module OmniAuth
         @raw_info ||= access_token.get('https://userinfo.yahooapis.jp/yconnect/v2/attribute').parsed
       end
 
-      def prune!(hash)
-        hash.delete_if do |_, value|
-          prune!(value) if value.is_a?(Hash)
-          value.nil? || (value.respond_to?(:empty?) && value.empty?)
-        end
-      end
     end
   end
 end

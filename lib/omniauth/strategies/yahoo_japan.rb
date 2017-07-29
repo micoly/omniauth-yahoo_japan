@@ -18,11 +18,11 @@ module OmniAuth
 
       info do
         {
-          name:       raw_info['nickname'] || "",
-          email:      raw_info['email'],
-          image:      raw_info['picture'] || "",
-          first_name: raw_info['given_name'] || "",
-          last_name:  raw_info['family_name'] || "",
+          name:        raw_info['nickname'] || "",
+          email:       raw_info['email'],
+          image:       raw_info['picture'] || "",
+          family_name: raw_info['given_name'] || "",
+          given_name:  raw_info['family_name'] || "",
         }
       end
 

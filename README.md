@@ -1,2 +1,2 @@
-Yahoo Japan連携用gem
+Yahoo Japan連携用gem<br>
 connectのv2対応のgemが2017年の7月時点でググった感じなさそうだったのでざっくり作った。
